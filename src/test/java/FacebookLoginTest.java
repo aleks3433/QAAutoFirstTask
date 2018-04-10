@@ -14,13 +14,11 @@ public class FacebookLoginTest {
 
         Navigation.openFacebookLoginPage();
 
-        FacebookLoginPage facebookLoginPage = new FacebookLoginPage();
-        facebookLoginPage.inputLogin();
-        facebookLoginPage.inputPassword();
-        facebookLoginPage.clickLoginButton();
+        FacebookLoginPage.inputLogin()
+                .inputPassword()
+                .clickLoginButton();
 
-        FacebookProfilePage facebookProfilePage = new FacebookProfilePage();
-        facebookProfilePage.findProfileIcon();
+        FacebookProfilePage.findProfileIcon();
     }
 
     @AfterTest
