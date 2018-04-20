@@ -9,3 +9,4 @@ public class FacebookProfilePage {
         Assert.assertTrue(findProfileIcon.isDisplayed());
     }
 }
+
