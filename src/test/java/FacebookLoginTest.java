@@ -1,8 +1,13 @@
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class FacebookLoginTest {
+
+    private static final String LOGIN = "";
+    private static final String PASSWORD = "";
+
 
     @BeforeTest
     public void openBrowser() {
@@ -11,14 +16,13 @@ public class FacebookLoginTest {
 
     @Test
     public void testLogin() {
-
         Navigation.openFacebookLoginPage();
 
-        FacebookLoginPage.inputLogin()
-                .inputPassword()
+        FacebookLoginPage.inputLogin(LOGIN)
+                .inputPassword(PASSWORD)
                 .clickLoginButton();
 
-        FacebookProfilePage.findProfileIcon();
+        Assert.assertTrue(FacebookProfilePage.isProfileIconVisible());
     }
 
     @AfterTest
