@@ -17,20 +17,17 @@ public class FacebookLoginPage {
     WebElement buttonConfirm;
 
     public FacebookLoginPage inputLogin(String login) {
-        PageFactory.initElements(BrowserManager.getBrowser(), FacebookLoginPage.class);
         loginInput.sendKeys(login);
-        return new FacebookLoginPage();
+        return PageFactory.initElements(BrowserManager.getBrowser(), FacebookLoginPage.class);
     }
 
     public FacebookLoginPage inputPassword(String password) {
-        PageFactory.initElements(BrowserManager.getBrowser(), FacebookLoginPage.class);
         passwordInput.sendKeys(password);
-        return new FacebookLoginPage();
+        return PageFactory.initElements(BrowserManager.getBrowser(), FacebookLoginPage.class);
     }
 
     public FacebookProfilePage clickLoginButton() {
-        PageFactory.initElements(BrowserManager.getBrowser(), FacebookLoginPage.class);
         buttonConfirm.click();
-        return new FacebookProfilePage();
+        return PageFactory.initElements(BrowserManager.getBrowser(), FacebookProfilePage.class);
     }
 }

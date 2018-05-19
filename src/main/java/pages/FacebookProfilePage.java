@@ -1,9 +1,7 @@
 package pages;
 
-import framework.BrowserManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class FacebookProfilePage {
 
@@ -11,7 +9,6 @@ public class FacebookProfilePage {
     WebElement profileIcon;
 
     public boolean isProfileIconVisible() {
-        PageFactory.initElements(BrowserManager.getBrowser(), FacebookProfilePage.class);
         return profileIcon.isDisplayed();
     }
 }

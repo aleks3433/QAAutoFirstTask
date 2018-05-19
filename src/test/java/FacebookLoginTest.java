@@ -23,7 +23,7 @@ public class FacebookLoginTest {
                 .inputPassword(password)
                 .clickLoginButton();
 
-        Assert.assertTrue(facebookProfilePage.isProfileIconVisible());
+        Assert.assertTrue(facebookProfilePage.isProfileIconVisible(), "Profile icon should be visible");
     }
 
     @Test
