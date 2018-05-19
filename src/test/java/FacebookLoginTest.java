@@ -1,31 +1,47 @@
+import framework.BrowserManager;
+import framework.Navigation;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.FacebookProfilePage;
 
 public class FacebookLoginTest {
 
-    private static final String LOGIN = "";
-    private static final String PASSWORD = "";
+    private static final String[] LOGIN = {"", "", ""};
+    private static final String[] PASSWORD = {"", "", ""};
 
 
-    @BeforeTest
+    @BeforeMethod
     public void openBrowser() {
         BrowserManager.openBrowser();
     }
 
-    @Test
-    public void testLogin() {
-        Navigation.openFacebookLoginPage();
-
-        FacebookLoginPage.inputLogin(LOGIN)
-                .inputPassword(PASSWORD)
+    private void testMultithreading(String login, String password) {
+        FacebookProfilePage facebookProfilePage = Navigation.openFacebookLoginPage()
+                .inputLogin(login)
+                .inputPassword(password)
                 .clickLoginButton();
 
-        Assert.assertTrue(FacebookProfilePage.isProfileIconVisible());
+        Assert.assertTrue(facebookProfilePage.isProfileIconVisible());
     }
 
-    @AfterTest
+    @Test
+    public void testLogin1() {
+        testMultithreading(LOGIN[0], PASSWORD[0]);
+    }
+
+    @Test
+    public void testLogin2() {
+        testMultithreading(LOGIN[1], PASSWORD[1]);
+    }
+
+    @Test
+    public void testLogin3() {
+        testMultithreading(LOGIN[2], PASSWORD[2]);
+    }
+
+    @AfterMethod
     public void closeBrowser() {
         BrowserManager.closeBrowser();
     }
